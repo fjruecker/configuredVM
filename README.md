@@ -1,4 +1,3 @@
-##########
 New-ConfiguredVM is a useful Windows-Powershell-Script to simplify creation and configuration of virtual machines running on Hyper-V.
 
 The script is available in different versions, which can be seen in branches named e.g. v0.5.1 or v0.5.2.
