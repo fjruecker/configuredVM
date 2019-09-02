@@ -1,34 +1,3 @@
-#
-# New-ConfiguredVM - create a Hyper-V virtual machine and configure it
-#
-# This script creates a new virtual machine to be used in Hyper-V and
-# configures most settings so that the operating system can be installed.
-# It also creates a virtual hard disk.
-# The virtual machine will be equiped with an virtual DVD, into which an
-# ISO-Image is loaded.
-#
-# This script needs to be executed with administrative privileges.
-#
-#
-# Author:   Reinhard Binder [BvO]           <reinhard.binder@gmx.net>
-#
-#
-# History:
-# v 0.5.2       2018-10-30  Florian R�cker [FjR]
-# (*)  notes can be added with a variable called $VMDescription
-# (*)  AutomaticStopAction and AutomaticStartAction are not hard-coded anymore
-# (*)  implemented a variable called $DynamicMemory to configure whether the VM uses dynamic memory allocation or not
-# (*)  implemented a variable called $SecureBoot to configure whether the VM uses Secure Boot or not
-#
-# v 0.5.1		2018-10-27	Reinhard Binder [BvO]
-# (*)  creating and adding a VHD-file containing the installation tools
-# (*)  implementation of three VM definition blocks: uncomment the VM you
-#      want to set up
-#
-# v 0.5.0     	2018-10-27	Reinhard Binder [BvO]
-#	   initial release
-#
-#
 # ToDo:
 # (*)  read config from file:
 #      read the configuration for the new VM from a file (INI or XML)
@@ -53,48 +22,6 @@
 # (*)  coding style:
 #      find an appropriate and widely accepted coding style and apply it here
 
-
-
-# ---  Start of VM properties definition: here you have to fill in the
-#      appropriate values as long as this silly script is not able to read
-#      the configuration from a file or accepts parameters.
-#
-#
-# define the properties of the new machine:
-# $VMName              : defines the name of the new VM
-# $VMGeneration        : defines which generation it should be
-#                        Generation 2 requires a 64 bit operating system,
-#                        which (in case of Windows) must be Windows 8 or newer
-#
-# $VMMemoryStartupBytes: how much RAM the VM needs on startup
-# $MemoryMinimumBytes  : minimum amount of RAM the host will reserve for
-#                        this VM
-# $MemoryMaximumBytes  : maximum amount of RAM the VM can use
-# $DynamicMemory       : should the new VM use dynamic memory?
-#
-# CAVE:
-# Too little memory will lead to:
-# (a) a roundabout 10-minute-delay when the VM reboots the first time during the
-#     installation of Windows 10
-# (b) a WDF VIOLATION blue screen, followed by an automatic reboot, after
-#     the first reboot during the installation of Windows 10.
-#
-#
-# $ProcessorCount      : how many processor cores are assigned to this VM
-#
-# $VMVHDSize           : the capacity of the virtual disk
-#
-# $VMHasDvdDrive       : should the new VM be equiped with a DVD drive?
-# $IsoImage            : which ISO Image should be mounted into the DVD drive
-#
-# $VMDescription       : the VM description displayed in Hyper-V-Manager
-#
-# $StartAction         : AutomaticStartAction, valid options are: Nothing | StartIfRunning | Start
-# $StopAction          : AutomaticStopAction, valid options are:  TurnOff | Save | ShutDown
-#
-#
-# $SecureBoot          : should Secure Boot be enabled on the VM?
-#
 # --- custom configuration block (begin)
 $VMName                 = "[VMName]"
 $VMGeneration           = 2
