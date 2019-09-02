@@ -1,27 +1,21 @@
-# ToDo:
-# (*)  read config from file:
-#      read the configuration for the new VM from a file (INI or XML)
 #
-# (*)  Boot Order Generation 1:
-#      Due to the $SecureBoot-Variable, the configuration of the boot order
-#      does not work properly whilst creating Generation-1-VM. A quick and
-#      dirty if-statement fixes it for now, but there definitely is a need
-#      for a proper solution on this issue.
+# New-ConfiguredVM.ps1
 #
-# (*)  Boot Order:
-#      implement a way to configure the boot order.  Currently the boot order
-#      is hard coded and set to DVD - HDD - Network.
+# create a new Hyper-V VM
 #
-# (*)  object orientation:
-#      use an object to define the properties of the new VM instead a bunch
-#      of variables
+# source and documentation: www.github.com/fjruecker/configuredVM
+# Author: Reinhard Binder [BvO] [mailto: reinhard.binder@gmx.net]
 #
-# (*)  version control:
-#      implement version control with git
+# Contributor: Florian Rücker [FjR] [mailto: f.j.ruecker@gmx.net]
 #
-# (*)  coding style:
-#      find an appropriate and widely accepted coding style and apply it here
-
+#
+#
+#
+# CAVE: needs to be run with administrative privileges!
+#
+#
+#
+#
 # --- custom configuration block (begin)
 $VMName                 = "[VMName]"
 $VMGeneration           = 2
